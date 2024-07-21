@@ -3,8 +3,9 @@ package runner;
 import io.cucumber.testng.CucumberOptions;
 import stepdefinitions.TestBase;
 
+
 @CucumberOptions(
-        features = "src/test/resourses/features",
+        features = "src/test/resourses",
         glue = {"stepdefinitions"},
         plugin = {"pretty",
                 "html:target/cucumber-html-report"},
