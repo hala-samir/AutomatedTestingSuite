@@ -33,7 +33,7 @@ jobs:
       run: mvn clean install -U
 
     - name: Run tests with detailed logging
-      run: mvn test -e -X
+      run: mvn test -Dbrowser="chrome"
 
   publish-job:
     runs-on: ubuntu-latest
@@ -46,12 +46,3 @@ jobs:
       with:
         java-version: '22'
         distribution: 'temurin'
-
-    - run: mvn --batch-mode --update-snapshots verify
-
-    - run: mkdir staging && cp target/*.jar staging
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: Package
-        path: staging
