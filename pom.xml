@@ -93,14 +93,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version> <!-- or the latest version -->
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
                 <configuration>
-                    <source>17</source> <!-- Use a compatible JDK version -->
-                    <target>17</target>
+                    <forkCount>0</forkCount> <!-- Optional: Configure fork mode -->
+                    <argLine>-Xmx1024m -XX:MaxMetaspaceSize=256m</argLine> <!-- Increase memory allocation -->
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
