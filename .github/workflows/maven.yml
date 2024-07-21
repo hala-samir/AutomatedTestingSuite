@@ -30,7 +30,7 @@ jobs:
         sudo apt-get install -f
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean install -U
 
     - name: Run tests with detailed logging
       run: mvn test -e -X
