@@ -4,7 +4,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -18,13 +17,8 @@ public class TestBase extends AbstractTestNGCucumberTests{
     public void setup(){
         String browser = System.getProperty("browser", "chrome");
         if (browser.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920,1080");
-            driver = new ChromeDriver(options);
+            WebDriverManager.chromedriver().clearDriverCache().setup();
+            driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("edge"))
         {
             WebDriverManager.edgedriver();
