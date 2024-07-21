@@ -33,7 +33,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run tests
-      run: mvn test
+      run: mvn test -e -X
 
   publish-job:
     runs-on: ubuntu-latest
