@@ -18,10 +18,12 @@ public class TestBase extends AbstractTestNGCucumberTests{
     public void setup(){
         String browser = System.getProperty("browser", "chrome");
         if (browser.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().clearDriverCache().setup();
-            ChromeOptions options = new ChromeOptions();
+            WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();            ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("edge"))
         {
