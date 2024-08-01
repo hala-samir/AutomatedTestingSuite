@@ -33,8 +33,8 @@ public class HomePage  extends PageBase{
     private String categoriesGenericLocator = "//a[normalize-space()='%s']";
 
     public void clickSignUpBtn(){
-       // action.moveToElement(signUpBtn).click().perform();
-        clickBtn(signUpBtn);
+//       action.moveToElement(driver.findElement(signUpBtn)).click().perform();
+       clickBtn(signUpBtn);
     }
 
     public void fillSignUpModalData(){
@@ -43,7 +43,8 @@ public class HomePage  extends PageBase{
     }
 
     public void clickSignUpBtnModel(){
-        clickBtn(signUpModelBtn);
+        action.moveToElement(driver.findElement(signUpModelBtn)).click().perform();
+//        clickBtn(signUpModelBtn);
     }
 
     public void clickLoginBtn(){
@@ -82,10 +83,16 @@ public class HomePage  extends PageBase{
     }
 
     public void clickLogoutBtn(){
+        refreshScreen();
         clickBtn(logoutBtn);
     }
 
     public boolean isSignUpBtnDisplayed(){
+
         return isElementDisplayed(signUpBtn);
+    }
+
+    public void refreshScreen(){
+        driver.navigate().refresh();
     }
 }

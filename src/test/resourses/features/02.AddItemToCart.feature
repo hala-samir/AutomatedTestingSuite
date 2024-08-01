@@ -1,4 +1,4 @@
-@test
+@test @cart
 Feature: User can add item to cart successfully
 
     Scenario: User adds item to the cart

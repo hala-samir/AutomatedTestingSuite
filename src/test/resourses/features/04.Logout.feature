@@ -1,4 +1,4 @@
-@test
+@test @logout
 Feature: User can log out successfully
 
     Scenario: User log out successfully

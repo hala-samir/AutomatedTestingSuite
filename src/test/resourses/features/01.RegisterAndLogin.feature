@@ -1,4 +1,4 @@
-@test
+@test @registerLogin
 Feature: User can register and log in successfully
 
     Scenario: User registers successfully

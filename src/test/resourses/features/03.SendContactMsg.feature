@@ -1,4 +1,4 @@
-@test
+@test @contact
 Feature: User can add item to cart successfully
 
     Scenario: User can send a contact message

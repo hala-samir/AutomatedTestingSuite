@@ -23,7 +23,7 @@ public class AddToCartSteps extends TestBase{
     }
 
     @Then("the item is added to the cart")
-    public void theItemIsAddedToTheCart() {
+    public void theItemIsAddedToTheCart(){
         productPage.clickAddToCartBtn();
         assertThat(homePage.getAlertText().equalsIgnoreCase("Product added."));
         homePage.dismissDisplayedAlert();

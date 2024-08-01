@@ -27,6 +27,7 @@ public class PageBase {
     public static void clickBtn(By element) {
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
         driver.findElement(element).click();
     }
 
@@ -47,7 +48,7 @@ public class PageBase {
     }
 
     public String getAlertText() {
-        wait.until(ExpectedConditions.alertIsPresent());
+       wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         return alert.getText();
     }
