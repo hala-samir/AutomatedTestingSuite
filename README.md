@@ -7,6 +7,7 @@
 - **Java Development Kit (JDK)**: Ensure JDK is installed on your machine.
 - **Maven**: Make sure Maven is installed and configured.
 - **IDE**: (e.g., IntelliJ IDEA, Eclipse)
+- **Docker**
 
 ### Installation
 
@@ -50,6 +51,64 @@ Selenium-maven-project
 ├── docker-compose.yaml
 └── README.md
 ```
+###  Using Docker with Selenium Standalone and Selenium Hub
+1. Docker Compose Basics
+   Docker Compose allows you to define and manage multi-container applications. In your project’s root directory, create a docker-compose.yml file (if you haven’t already). This file will describe your services and their configurations.
+
+2. Selenium Hub Service
+   Now let’s add Selenium Hub with different browsers nodes:
+
+```
+version: "3"
+services:
+  chrome:
+    image: selenium/node-chrome:dev
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  edge:
+    image: selenium/node-edge:dev
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  firefox:
+    image: selenium/node-firefox:dev
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+```
+3. Running Your Setup
+Make sure Docker is running.
+Navigate to your project directory.
+Run docker-compose up to start the services in detached mode.
+Your Selenium Grid is now up and running!
+
+4. Cleanup
+   When you’re done, run docker-compose down to stop and remove the containers
+
+Remember, Docker makes your testing environment portable and consistent. Happy testing, fellow code explorer! 🚀🔍
 
 ### Running Tests
 
