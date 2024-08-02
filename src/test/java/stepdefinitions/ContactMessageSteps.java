@@ -34,7 +34,7 @@ public class ContactMessageSteps extends TestBase{
     }
 
     @Then("the message is sent successfully")
-    public void theMessageIsSentSuccessfully() {
+    public void theMessageIsSentSuccessfully()  {
         assertThat(homePage.getAlertText().equalsIgnoreCase("Thanks for the message!!"));
         homePage.dismissDisplayedAlert();
     }

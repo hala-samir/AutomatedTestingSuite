@@ -20,7 +20,7 @@ public class TestBase extends AbstractTestNGCucumberTests{
 
     @Parameters({"browser"})
     @BeforeTest
-    public void setup(@Optional("chrome")String browser) throws MalformedURLException {
+    public void setup(@Optional("chrome")String browser) throws MalformedURLException, InterruptedException {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options=new ChromeOptions();
             driver= new RemoteWebDriver(new URL(host_URL), options);
@@ -34,8 +34,10 @@ public class TestBase extends AbstractTestNGCucumberTests{
             WebDriverManager.safaridriver().setup();
             driver = new SafariDriver();
         }
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
        driver.get(app_URL);
+       Thread.sleep(5000);
     }
 
     @AfterSuite

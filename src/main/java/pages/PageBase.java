@@ -43,7 +43,6 @@ public class PageBase {
 
     public static void fillTextField(By element, String txt) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        clearTxt(driver.findElement(element));
         fillTextField(driver.findElement(element), txt);
     }
 
@@ -58,7 +57,7 @@ public class PageBase {
     }
 
     public void dismissDisplayedAlert() {
-        driver.switchTo().alert().dismiss();
+        driver.switchTo().alert().accept();
     }
 
     public boolean isElementDisplayed(By element){
