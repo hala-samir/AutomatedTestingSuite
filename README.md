@@ -108,7 +108,7 @@ Your Selenium Grid is now up and running!
 4. Cleanup
    When you’re done, run docker-compose down to stop and remove the containers
 
-Remember, Docker makes your testing environment portable and consistent. Happy testing, fellow code explorer! 🚀🔍
+Remember, Docker makes your testing environment portable and consistent. Happy testing, fellow code explorer!🚀🔍
 
 ### Running Tests
 
