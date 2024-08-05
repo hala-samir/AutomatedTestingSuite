@@ -125,10 +125,10 @@ mvn test
 
 ### Cross Browser Testing
 
-These test cases are supported to be run on different browsers (Chrome, Firefox, Edge and Safari).
+These test cases are supported to be run on different browsers (Chrome, Firefox and Edge).
 
 ```
-mvn test -Dbrowser="browsserName"
+mvn test -Dbrowser="browserName"
 ```
 
 ## Test Case Design
