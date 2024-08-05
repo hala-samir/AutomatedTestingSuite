@@ -52,10 +52,13 @@ Selenium-maven-project
 └── README.md
 ```
 ###  Using Docker with Selenium Standalone and Selenium Hub
-1. Docker Compose Basics
+
+1. Docker Compose Basics:
+
    Docker Compose allows you to define and manage multi-container applications. In your project’s root directory, create a docker-compose.yml file (if you haven’t already). This file will describe your services and their configurations.
 
 2. Selenium Hub Service
+
    Now let’s add Selenium Hub with different browsers nodes:
 
 ```
